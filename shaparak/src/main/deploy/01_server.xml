@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<server class="org.jpos.q2.iso.QServer" logger="Q2"
+        name="xml-server-8000" realm="xml-server-8000">
+    <attr name="port" type="java.lang.Integer">9000</attr>
+    <channel class="org.jpos.iso.channel.ASCIIChannel"
+             packager="com.asan.client.packager.CustomPackager"
+             type="server"
+             logger="Q2"
+             realm="xml-server-8000">
+        <property name="timeout" value="180000"/>
+    </channel>
+    <request-listener class="com.asan.Shaparak" logger="Q2"
+                      realm="incoming-request-listener">
+        <property name="queue" value="TXNMGR"/>
+        <property name="ctx.DESTINATION" value="jPOS-AUTORESPONDER"/>
+    </request-listener>
+</server>
+
+
+        <!--<server name="xml-server-8000" class="org.jpos.q2.iso.QServer" logger="Q2">-->
+        <!--<attr name="port" type="java.lang.Integer">1230</attr>-->
+        <!--<channel class="org.jpos.iso.channel.ASCIIChannel"-->
+        <!--packager="CustomPackager"-->
+        <!--type="server"-->
+        <!--logger="Q2"-->
+        <!--realm="xml-server-8000">-->
+        <!--<property name="timeout" value="180000"/>-->
+        <!--<property name="host" value="127.0.0.1"/>-->
+        <!--<property name="port" value="9000"/>-->
+        <!--</channel>-->
+
+        <!--</server>-->
+
+
+

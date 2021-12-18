@@ -1,0 +1,10 @@
+<mux class="org.jpos.q2.iso.QMUX" logger="Q2" name="client-mux">
+
+    <ready>test-channel.ready</ready>
+    <unhandled>myunhandledqueue</unhandled>
+    <key>3 41</key>
+    <in>remote-receive</in>
+    <out>remote-send</out>
+</mux>
+
+

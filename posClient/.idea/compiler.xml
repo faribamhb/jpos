@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="com.asan" />
+        <module name="com.asan (1) (posClient)" />
+        <module name="com.asan (1) (posServer)" />
+        <module name="com.asan (1) (shaparak)" />
+        <module name="com.asan (2) (posServer)" />
+        <module name="com.asan (3) (shaparak)" />
+        <module name="posClient" />
+        <module name="posServer" />
+        <module name="shaparak" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.test" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channel-adaptor name="test-channel" class="org.jpos.q2.iso.ChannelAdaptor" logger="Q2">
+    <!--<channel class="org.jpos.iso.channel.ASCIIChannel" realm="test-channel" packager="org.jpos.iso.packager.GenericPackager">-->
+        <!--&lt;!&ndash;<property name="packager-config" value="src/main/resources/iso8583.xml" />&ndash;&gt;-->
+        <!--<property name="host" value="127.0.0.1"/>-->
+        <!--<property name="port" value="1230"/>-->
+        <!--&lt;!&ndash;<property name="connection-timeout" value="15000" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="timeout" value="3000000" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="keep-alive" value="true" />&ndash;&gt;-->
+    <!--</channel>-->
+
+
+    <channel class="org.jpos.iso.channel.ASCIIChannel"
+             packager="com.asan.client.packager.CustomPackager"
+             type="server"
+             logger="Q2"
+             realm="xml-server-8000">
+        <property name="timeout" value="180000"/>
+        <property name="host" value="127.0.0.1"/>
+        <property name="port" value="8000"/>
+    </channel>
+
+    <in>remote-send</in>
+    <out>remote-receive</out>
+</channel-adaptor>

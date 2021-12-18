@@ -1,0 +1,23 @@
+<!--<mux class="org.jpos.q2.iso.QMUX" logger="Q2" name="client-mux">-->
+    <!--<in>remote-receive</in>-->
+    <!--<out>remote-send</out>-->
+    <!--<ready>jpos-client.ready</ready>-->
+    <!--&lt;!&ndash;<channel class="org.jpos.iso.channel.NACChannel" header="000000000000000000000000"&ndash;&gt;-->
+             <!--&lt;!&ndash;packager="client.test" logger="Q2">&ndash;&gt;-->
+
+        <!--&lt;!&ndash;&lt;!&ndash; Server A Address &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="host" value="127.0.0.1" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="port" value="15500" />&ndash;&gt;-->
+    <!--&lt;!&ndash;</channel>&ndash;&gt;-->
+<!--</mux>-->
+
+<mux class="org.jpos.q2.iso.QMUX" logger="Q2" name="client-mux1">
+
+    <ready>test-channel.ready</ready>
+    <unhandled>myunhandledqueue</unhandled>
+    <key>3</key>
+    <in>remote-receive</in>
+    <out>remote-send</out>
+</mux>
+
+

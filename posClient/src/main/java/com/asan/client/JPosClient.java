@@ -1,5 +1,6 @@
 package com.asan.client;
 
+import com.asan.client.isomsg.JposUtility;
 import com.asan.client.packager.CustomPackager;
 import org.jpos.iso.*;
 import org.jpos.q2.Q2;
@@ -27,8 +28,10 @@ public class JPosClient {
                 System.out.println("ssiiii");
             }
             //sender
-
-            mux.request(createReqMsg(), 10 * 1000);
+            JposUtility  jposUtility=new JposUtility();
+            ISOMsg isoMsg = jposUtility.unpackMessage("0200313082200000020000000400000000000000111312532012345630300301");
+            mux.request(isoMsg, 10 * 1000);
+           // mux.request(createReqMsg(), 10 * 1000);
         } catch (ISOException e) {
             e.printStackTrace();
         }

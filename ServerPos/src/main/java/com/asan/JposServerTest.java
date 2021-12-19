@@ -14,15 +14,8 @@ public class JposServerTest implements ISORequestListener {
 
     public boolean process(ISOSource isoSrc, ISOMsg isoMsg) {
         try {
-            if (isoMsg.getMTI().equals("0200")) {
-                ISOMsg reply = (ISOMsg) isoMsg.clone();
-               // reply.setResponseMTI();
-                reply.set(39, "10");
-                reply.set(98,"serverPos");
-                isoSrc.send(reply);
-                //return true;
-            }
-// send request to server B
+                isoMsg.set(98,"serverPos");
+            // send request to server B
             MUX mux = (MUX) NameRegistrar.getIfExists("mux.clientmux");
             ISOMsg reply = mux.request(isoMsg, 100 * 1000);
             if (reply != null) {

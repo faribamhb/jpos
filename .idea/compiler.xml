@@ -6,10 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="com.asan" />
+        <module name="com.asan (1) (posClient)" />
+        <module name="com.asan (1) (posServer)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="com.asan" target="1.5" />
+      <module name="com.asanpardakht" target="1.5" />
       <module name="Final" target="1.5" />
     </bytecodeTargetLevel>
   </component>

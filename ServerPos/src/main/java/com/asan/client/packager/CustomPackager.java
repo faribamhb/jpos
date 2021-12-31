@@ -70,7 +70,7 @@ public class CustomPackager extends ISOBasePackager {
     /*060*/ new IFA_LLLCHAR(999, "SECURITY_DATA"),//ok name: security data
     /*061*/ new IFA_LLLCHAR(999, "RESERVED PRIVATE"),
     /*062*/ new IFA_LLLCHAR(999, "TRANSACTION_CODING"),//change from 99 ->999 name is: transactionCoding
-    /*063*/ new IFA_LLCHAR(99, "INF_DATA"),//change from 999 -> 99 name= transactionId
+    /*063*/ new IFA_LLLCHAR(999, "INF_DATA"),//change from 999 -> 99 name= transactionId
     /*064*/ new IFA_BINARY(8, "MESSAGE AUTHENTICATION CODE FIELD"),
     /*065*/ new IFA_BINARY(1, "BITMAP, EXTENDED"),
     /*066*/ new IFA_NUMERIC(1, "SETTLEMENT CODE"),

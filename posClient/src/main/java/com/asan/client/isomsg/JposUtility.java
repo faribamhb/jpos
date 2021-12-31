@@ -4,6 +4,8 @@ package com.asan.client.isomsg;
 import com.asan.client.packager.CustomPackager;
 import org.jpos.iso.ISOException;
 import org.jpos.iso.ISOMsg;
+import org.jpos.iso.packager.Base1Packager;
+import org.jpos.iso.packager.GenericPackager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,18 +19,19 @@ public class JposUtility {
 
 
 
-    public ISOMsg unpackMessage(String channelManagerMessage) {
+    public ISOMsg unpackMessage(String channelManagerMessage) throws ISOException {
         byte[] requestMessage = channelManagerMessage.getBytes();
 
         logger.info("incoming request message for unpacking is : " + channelManagerMessage);
         ISOMsg isoMsg = new ISOMsg();
         // set packager, change IranArghamPackager for the matching one.
         isoMsg.setPackager(new CustomPackager());
+
         //unpack the message using the packager
         try {
 
             isoMsg.unpack(EncodeToAscii(channelManagerMessage));
-           // logISOMsg(isoMsg);
+            logISOMsg(isoMsg);
         } catch (Exception e) {
             logger.error("error while unpacking message : " + e.getMessage() + channelManagerMessage + Arrays.toString(e.getStackTrace()) );
         }
@@ -58,14 +61,22 @@ public class JposUtility {
 
     }
 
-    public static byte[] EncodeToAscii(String sValue) throws UnsupportedEncodingException {
-        byte[] by8859 = sValue.getBytes("Cp1256");
-        String tempValue = new String(by8859, "ISO8859_1");
-        byte[] bValue = new byte[tempValue.length()];
-        for (int y = 0; y < tempValue.length(); y++) {
-            bValue[y] = (byte) ((int) tempValue.charAt(y));
+//    public static byte[] EncodeToAscii(String sValue) throws UnsupportedEncodingException {
+//        byte[] by8859 = sValue.getBytes("Cp1256");
+//        String tempValue = new String(by8859, "ISO8859_1");
+//        byte[] bValue = new byte[tempValue.length()];
+//        for (int y = 0; y < tempValue.length(); y++) {
+//            bValue[y] = (byte) ((int) tempValue.charAt(y));
+//        }
+//        return bValue;
+//    }
+
+    public static byte[] EncodeToAscii(final String hex) {
+        final byte[] bytes = new byte[hex.length() / 2];
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = (byte) Integer.parseInt(hex.substring(i * 2, i * 2 + 2), 16);
         }
-        return bValue;
+        return bytes;
     }
 
 }
